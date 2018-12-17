@@ -1,0 +1,15 @@
+{extend name="public/base" /} 
+{block name="main"}
+后台首页
+<div id="ticketboark"></div>
+<span id="haoma"></span>
+<script>
+$("#carkeycode").click(function(){
+    console.log(99);
+    $.ticketBoard({id:"ticketboark",callback:function(data){
+        $("#haoma").text(data);
+    }});
+
+});
+</script>
+{/block}
