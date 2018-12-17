@@ -16,6 +16,6 @@ class Index extends Controller
     	$Menu = new \logic\menu\Menu();
     	$list = $Menu -> get_menu_list();
     	$menulist = nodeMerge($list['list']);
-    	return json( array( 'code'=> 1,'msg'=>'请求成功','data'=>$menulist));
+    	return json( array( 'code'=> 1,'msg'=>'请求2222成功','data'=>$menulist));
     }
 }
