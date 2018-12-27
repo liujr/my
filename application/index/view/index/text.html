@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p class="success">websocket握手失败!</p>
+	<div class="chat"></div>
+	<div class="websocket">
+	    <input type="text" class="name">
+	    <input type="button" class = "submit" value="提交">
+	</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/jquery.js"></script>
+<script>	
+		var uid = {$Think.get.id};
+		socket = new WebSocket('ws://127.0.0.1:8282');
+	    //连接成功时触发
+	    socket.onopen = function(){
+	    	$('.success').html('websocket握手成功!');
+	        // 登录
+	        var login_data ='{"type":"init","id":"' + uid +'"}';
+	        socket.send( login_data );
+	    };
+	    //提交
+	    $('.submit').click(function(){
+	        var name = $('.name').val();
+	        var login_data = '{"type":"say","id":"' + uid + '", "message":"' + name + '"}';
+	        socket.send( login_data );
+	    })
+	    //监听收到的消息
+	    socket.onmessage = function(res){
+	        var data = eval("("+res.data+")");
+	        console.log( data );
+	        switch(data.type){
+	        	case 'say':
+	        		var html = '';
+	                if(data.code == 2){
+	                	html = '<p>My--成功'+data.msg+'</p>';
+	                	$('.chat').append(html);
+	                }else{
+	                	html = '<p>My--失败'+data.msg+'</p>';
+	                	$('.chat').append(html);
+	                }
+                break;
+	        }
+	    };
+	</script>
+</html>
