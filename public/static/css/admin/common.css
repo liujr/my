@@ -1,0 +1,28 @@
+/*公共样式*/
+/*table样式*/
+.td_left{text-align:left;}
+.td_center{text-align:center;}
+.td_right{text-align:right;}
+.mt10{margin-top:10px;}
+.pt10{padding-top:10px;}
+.mleft10{margin-left:10px;}
+
+.x-fieldset{border:1px solid #D3DBDE;padding:10px;margin-bottom:10px;display:block;margin: 10px; font-size:14px}
+.x-legend{font-size: 14px; color: blue; padding-left: 5px; padding-right: 5px;}
+
+.input_width1{width:100px;}
+.input_width2{width:190px;}
+
+.float_l{float:left;}
+.float_r{float:right;}
+
+/*上传商品图片*/
+.uploadimg-wrap:after{content:"";display:block;height:0;width:100%;clear:both;overflow:hidden;}
+.uploadimg-wrap li{position:relative;float:left;width:120px;height:150px;border:1px solid #DEDEDE;margin-right:10px;background:#F2F2F2;}
+.uploadimg-wrap li img{width:100%;height:120px;}
+.uploadimg-wrap li .deletebtn{width:20px;height:20px;background:rgba(0,0,0,0.6);color:#FFF;text-align:center;line-height:18px;font-size:18px;display:block;position:absolute;right:5px;top:5px; overflow:hidden;border-radius:100%;padding:0;}
+.uploadimg-wrap li.uploadImgIframe{height:120px}
+.uploadimg-wrap li .upload-btn{ position:relative;width:100%;height:100%;display:block;line-height:320px; overflow:hidden}
+.uploadimg-wrap li a.upload-btn:before{height:4px;width:50px;content:"";display:block;position:absolute;top:58px;left:35px;background:#DDD;}
+.uploadimg-wrap li a.upload-btn:after{height:50px;width:4px;content:"";display:block;position:absolute;top:35px;left:58px;background:#DDD;}
+.uploadimg-wrap .pic-operation{height:30px;font-size:12px;width:100%;border-top:1px solid #DEDEDE; text-align:center;line-height:30px}

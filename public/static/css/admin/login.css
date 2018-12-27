@@ -1,0 +1,69 @@
+﻿@charset "utf-8";
+/************************* 公共样式 *************************/
+body{margin:0; padding:0;  font-family:微软雅黑,Arial; font-size:12px;line-height:18px;color:#666;text-align:left; border:none; background:#edeef3; margin:0 auto; }
+img,html,p,ul,li,input,form,h1,h2,h3,h4,h5,h6,dl,dd,dt,ol,input{margin:0;padding:0;border:0; outline-offset:0; outline-style:none; outline-width:0; -webkit-font-smoothing:inherit;}
+ul,li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+a{outline:none; blr:expression(this.onFocus=this.blur()); transition:background-color 0.3s ease 3s; transition:all .5s;}
+input{outline:none; blr:expression(this.onFocus=this.blur()); transition:background-color 0.3s ease 3s;}
+a:link{color:#666;text-decoration: none; }
+a:visited{color:#666;text-decoration: none;}
+a:hover{color:#ff6a26;text-decoration: none;}
+a:active{color:#ff6a26;text-decoration: none;}
+a,area {blr:expression(this.onFocus=this.blur()) } 
+.clear{clear:both;font-size:0px;height:0px;line-height:0px;overflow:hidden;}
+fieldset, img{border:0;}
+body,html{ height:100%; line-height:100%;}
+@font-face{font-family: 'font'; src: local('../font/font.ttf'), url('../font/font.ttf') format('truetype');}
+.hdd_t{width:100%; height:100px; left:0px; top:0px; position:fixed; z-index:1;}
+.left_t{ width:110px; height:100%; left:0px; top:100px; position:fixed; z-index:1;}
+.right_t{ padding:100px 0 0 110px; position:relative; height:100%;}
+canvas{background:transparent; position:relative; z-index:1; opacity:0.8;}
+
+
+
+
+
+/************************* 登录 ***********************/
+.log_center{ width:430px; height:430px; position:absolute; left:50%; top:50%; display:inline-block; margin-top:-250px; margin-left:-200px; z-index:2;}
+.bodybj{ width:100%; display:block; height:100%; background: url(../../../static/images/admin/bj.jpg) no-repeat center; background-size:cover; position:absolute; left:0px; top:0px; height:100%;}
+.log_logo{ width:100%; text-align:center; margin-bottom:30px; }
+.log_bj{width:430px;height: 373px;background:#fff;border-radius:9px;opacity:0.9;}
+.log_bj ul{ padding: 27px 0 0 50px; }
+.log_bj li{ width:338px; height:60px; border-bottom:1px solid #e7e7e7; padding-bottom:5px; position:relative;}
+.log_bj li span{ width:40px; height:60px; background: url(../../../static/images/admin/tb.png) no-repeat 0 13px; display:block; float:left; }
+.log_bj li .inp1{ float:left; width:278px; height:60px; line-height:60px; background:none; font-size:17px; color:#333; font-family:微软雅黑,Arial;}
+.log_bj li span.tb2{ background-position:0 -65px;}
+.log_bj li span.tb3{ background-position:0 -140px;}
+.tz_an{ width:338px; height:54px; background: url(../../../static/images/admin/tman.png) no-repeat; margin-top:30px; text-align:center; color:#fff; font-size:18px; line-height:54px; color:#fff; }
+.tz_an a{ width:338px; height:54px; line-height:54px; color:#fff; display:block;}
+.tz_zc{ width:338px; height:40px;line-height:40px; font-size:14px; text-align:center; margin-top:10px;}
+.tz_zc a{padding:0 8px;font-size:16px;}
+.log_bj li ol{ position:absolute; right:0px; top:20px; display:block;}
+.loginbutton{
+    background: #EA4242;
+    background: -moz-linear-gradient(top,  #FF7C51 0%, #FF7373 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF7C51), color-stop(100%,#FF7373));
+    background: -webkit-linear-gradient(left,  #FF7C51 0%,#FF7373 100%);
+    background: -o-linear-gradient(left,  #FF7C51 0%,#FF7373 100%);
+    background: -ms-linear-gradient(left,  #FF7C51 0%,#FF7373 100%);
+    background: linear-gradient(to right,  #FF7C51 0%,#FF7373 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7C51', endColorstr='#FF7373',GradientType=0 ); /* ie6 - ie8 */
+}
+:root .loginbutton{filter:none;} /* ie9 */
+
+.layui-ActAcc{width:440px;margin:50px auto 0;padding-right:40px;}
+.layui-ActAcc.layui-FPd{width:500px;padding-right:80px}
+.layui-ActAcc .layui-input{height:45px;font-size:15px}
+.layui-ActAcc .ActAccinpt02{width:200px !important;}
+.layui-ActAcc .ActAcccode{width:118px;height:43px; border:1px solid #E4E4E4;display:block;color:#999; text-align:center;background:#F2F2F2;line-height:45px; border-radius:3px}
+.layui-ActAcc .ActAccbtn{height:45px;width:200px; line-height:45px;font-size:16px}
+.layui-ActAcc .layui-btn-primary {border:none;font-size:16px}
+.layui-ActAcc .layui-disabled{background:#F2F2F2;}
+.layui-ActAcc .layui-form-label{color:#666;font-size:16px; line-height:25px}
+.layui-ActAcc .layui-form-item{padding-bottom:5px}
+.layui-ActAcc .layui-icon{font-size:42px !important}
+.layui-ActAcc .layui-icon-suss{color:#EF935A;}
+.layui-ActAcc .layui-icon-fail{color:#FF5959;}
+.layui-ActAcc .layui-icon-other{color:#FF9D44;}
+.layui-ActAcc .tipstext{font-size:16px; line-height:1.6;padding-top:10px}
