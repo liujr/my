@@ -43,3 +43,32 @@ function nodeMerge($node,$pidname='pid',$pid=0,$access=null,$nid='id',$childrenN
 	}
 	return $arr;
 }
+
+function error($msg){
+	return ['code'=>0,'msg'=>$msg,'data'=>[]];
+}
+
+function success($msg,$data=array()){
+	return ['code'=>1,'msg'=>$msg,'data'=>$data];
+}
+
+/**
+ * 可以发送post请求
+ */
+function postRequest($url, $data)
+{
+    // php如何实现post请求？http协议 -- curl函数库
+    $ch  =  curl_init (); // 1. 打开一个浏览器
+    curl_setopt ( $ch ,  CURLOPT_URL , $url );// 2. 设置url地址
+    // 这样请求后，会把内容直接的输出，有的时候我们时候希望把请求内容存放到一个变量里面
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER , true);
+    // post 请求配置
+    curl_setopt( $ch, CURLOPT_POST , true);
+    curl_setopt( $ch, CURLOPT_POSTFIELDS , $data);
+    // 但是需要注意：我们请求微信的接口的时候，微信提供的方式是https类型的接口，这个时候我们需要关闭一下openssl验证
+    curl_setopt( $ch,  CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt( $ch,  CURLOPT_SSL_VERIFYPEER, false);
+    $content = curl_exec ( $ch ); // 3. 发送请求，抓取URL并把它传递给浏览器
+    curl_close ( $ch ); //4. 关闭cURL资源，并且释放系统资源
+    return $content;
+}

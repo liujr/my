@@ -30,7 +30,7 @@
                         <a href="javascript:;" class="clearCache"><i class="layui-icon" data-icon="&#xe640;">&#xe640;</i><cite>清除缓存</cite></a>
                     </li>
                     <li class="layui-nav-item" id="userInfo">
-                        <a href="javascript:;"><cite class="adminName">张三</cite></a>
+                        <a href="javascript:;"><cite class="adminName">{$Think.session.name}</cite></a>
                         <dl class="layui-nav-child">
                             <dd>
                                 <a href="javascript:;" data-url="{:config("url.url")['store']}/personal/info">
@@ -43,7 +43,7 @@
                                 </a>
                             </dd>
                             <dd>
-                                <a href="/passport/unlogin" class="signOut">
+                                <a href="/admin/login/loginout" class="signOut">
                                     <i class="seraph icon-tuichu"></i><cite>退出</cite>
                                 </a>
                             </dd>
