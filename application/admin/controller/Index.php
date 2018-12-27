@@ -19,7 +19,4 @@ class Index extends Base
     	return json( array( 'code'=> 1,'msg'=>'请求成功','data'=>$menulist));
     }
 
-
-
-
 }
