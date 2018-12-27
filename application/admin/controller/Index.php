@@ -18,4 +18,8 @@ class Index extends Base
     	$menulist = nodeMerge($list['list']);
     	return json( array( 'code'=> 1,'msg'=>'请求成功','data'=>$menulist));
     }
+
+
+
+
 }
