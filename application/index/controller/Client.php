@@ -6,7 +6,7 @@ class Client
     private $client;
 
     public function __construct() {
-        $this->client = new swoole_client(SWOOLE_SOCK_TCP);
+        $this->client = new \swoole_client(SWOOLE_SOCK_TCP);
     }
 
     public function connect() {
