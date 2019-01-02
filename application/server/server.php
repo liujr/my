@@ -21,10 +21,12 @@ class Server
 
     public function onStart( $serv ) {
         echo "Start\n";
+
     }
 
     public function onWorker($serv,$worker_id){
     	echo "$worker_id tttttt \n";
+    	swoole_set_process_name("live_master");
     }
 
     public function onConnect( $serv, $fd, $from_id ) {
