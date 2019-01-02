@@ -24,7 +24,7 @@ class Server
     }
 
     public function onWorker($serv,$worker_id){
-    	echo "$worker_id \n";
+    	echo "$worker_id tttttt \n";
     }
 
     public function onConnect( $serv, $fd, $from_id ) {
