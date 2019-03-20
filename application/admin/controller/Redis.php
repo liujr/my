@@ -11,10 +11,26 @@ class Redis extends Controller
 	}
 
 	public function index(){
-		$this->redis->set("aaa","111");
-		dump($this->redis->get("aaa"));
-
+		echo 11;die;
 	}
+
+
+	//发布
+	public function pub(){
+		$res = $this->redis->publish('test','hello,world');
+		dump($res);
+	}
+
+	//订阅
+	public function sub(){
+		$res = $this->redis->subscribe(array('test'), function($instance, $channelName, $message){
+			dump($instance);
+			dump($channelName);
+			dump($message);
+		});
+	}
+
+
 
 
 }
