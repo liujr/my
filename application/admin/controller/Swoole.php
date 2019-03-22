@@ -17,7 +17,7 @@ class Swoole extends Base
     }
 
     public function index(){
-        $this->client = new swoole_client(SWOOLE_SOCK_TCP);
+        $this->client = new \swoole_client(SWOOLE_SOCK_TCP);
         $this->connect();
     }
 
