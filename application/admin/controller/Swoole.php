@@ -6,7 +6,7 @@ class Swoole extends Base
     private $client;
 
     public function index(){
-         $this->client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
+         $this->client = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
 
         $this->client->on('Connect', array($this, 'onConnect'));
         $this->client->on('Receive', array($this, 'onReceive'));
