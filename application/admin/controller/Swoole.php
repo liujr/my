@@ -8,9 +8,12 @@ class Swoole extends Base
         if( !$this->client->connect("127.0.0.1", 9501 , 1) ) {
             echo "Error: {$fp->errMsg}[{$fp->errCode}]\n";
         }
-        $message = $this->client->recv();  
+        
         $msg = '你好';
         $this->client->send( $msg );
+
+        $message = $this->client->recv();
+        echo "Get Message From Server:{$message}\n";
     }
 
     public function index(){

@@ -11,7 +11,6 @@ class Server
         ));
 
         $this->serv->on('Start', array($this, 'onStart'));
-        $this->serv->on('Workerstart', array($this, 'onWorker'));
         $this->serv->on('Connect', array($this, 'onConnect'));
         $this->serv->on('Receive', array($this, 'onReceive'));
         $this->serv->on('Close', array($this, 'onClose'));
@@ -21,11 +20,7 @@ class Server
 
     public function onStart( $serv ) {
         echo "Start\n";
-        swoole_set_process_name("live_master");
-    }
-
-    public function onWorker($serv,$worker_id){
-    	echo "$worker_id 1111\n";
+        
     }
 
     public function onConnect( $serv, $fd, $from_id ) {
