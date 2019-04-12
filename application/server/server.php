@@ -4,7 +4,7 @@ class Server
     private $serv;
 
     public function __construct() {
-        $this->serv = new \new Swoole\WebSocket\Server("0.0.0.0", 9501);
+        $this->serv = new \Swoole_WebSocket_Server("0.0.0.0", 9501);
         $this->serv->set(array(
             'worker_num' => 8,
             'daemonize' => false,
