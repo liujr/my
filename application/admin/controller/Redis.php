@@ -25,7 +25,7 @@ class Redis extends Controller
 
 	//订阅
 	public function sub(){
-		$redis = new \Redis;
+		$redis = new \Redis();
 		$redis->connect('127.0.0.1',6379);
 		$redis->subscribe(array('test'), function($redis, $channelName, $message){
 			var_dump($channelName,$message);
