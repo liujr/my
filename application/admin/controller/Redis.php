@@ -17,7 +17,9 @@ class Redis extends Controller
 
 	//发布
 	public function pub(){
-		$res = $this->redis->publish('test','hello,world');
+		$redis = new \Redis;
+		$redis->connect('127.0.0.1',6379);
+		$res = $redis->publish('test','hello,world');
 		dump($res);
 	}
 
