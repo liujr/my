@@ -15,22 +15,25 @@ class Redis extends Controller
 	}
 
 
-	//发布
-	public function pub(){
-		$redis = new \Redis;
-		$redis->connect('127.0.0.1',6379);
-		$res = $redis->publish('test','hello,world');
+	//发布redis
+	public function redis(){
+		$res = $this->redis->publish('chan:redis','学习redis');
 		dump($res);
 	}
-
-	//订阅
-	public function sub(){
-		ini_set('default_socket_timeout', -1);
-		$redis = new \Redis();
-		$redis->connect('127.0.0.1',6379);
-		$redis->subscribe(array('test'), function($redis, $channelName, $message){
-			var_dump($channelName,$message);
-		});
+	//发布php
+	public function php(){
+		$res = $this->redis->publish('chan:php','学习php');
+		dump($res);
+	}
+	//发布javascript
+	public function javascript(){
+		$res = $this->redis->publish('chan:javascript','学习javascript');
+		dump($res);
+	}
+	//发布redis
+	public function swoole(){
+		$res = $this->redis->publish('chan:swoole','学习swoole');
+		dump($res);
 	}
 
 
