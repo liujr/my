@@ -10,5 +10,5 @@
 // +----------------------------------------------------------------------
 
 return [
-    'app\admin\controller\cli',
+    'app\admin\controller\Cli',
 ];
