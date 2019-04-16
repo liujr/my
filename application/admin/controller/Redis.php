@@ -1,15 +1,12 @@
 <?php
 namespace app\admin\controller;
 use think\Controller;
-use think\Console;
 class Redis extends Controller
 {
 	
 	public $redis;
 	public function __construct(){
-        $output = Console::call('test' );
-
-        $this->redis = new \Redis;
+		$this->redis = new \Redis;
 		$this->redis->connect('120.79.32.177',6379);
 	}
 
