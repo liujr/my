@@ -36,47 +36,6 @@
             </tr>
         </thead>
         <tbody>
-        {volist name="menulist.list" id="v1"}
-            <tr class="nodelist" data-id="{$v1['id']}" data-url="{:url('menu/add')}">
-                <td class="td_left">
-                    <div class="layui-table-cell ">{$v1['menuname']}</div>
-                </td>
-                <td class="td_left">
-                    <div class="layui-table-cell ">{$v1['menuurl']}</div>
-                </td>
-                <td class="td_left">
-                    <div class="layui-table-cell ">{$v1['remark']}</div>
-                </td>
-                <td class="td_left">
-                    <div class="layui-table-cell ">{$v1['sort']}</div>
-                </td>
-                <td class="td_center">
-                    <a href="javascript:;" class="addNode layui-btn layui-btn-primary layui-btn-xs">添加菜单</a>&nbsp;&nbsp;
-                    <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
-                    <a href="javascript:;" data-id="{$v1['id']}" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
-                </td>
-            </tr>
-            {volist name="v1.children" id="v2"}
-                <tr data-id="{$v2['id']}" style="display: none;" class="nodelist_{$v1['id']}">
-                    <td class="td_left">
-                        <div class="layui-table-cell" style="color:#1E9FFF">|-- {$v2['menuname']}</div>
-                    </td>
-                    <td class="td_left">
-                        <div class="layui-table-cell ">{$v2['menuurl']}</div>
-                    </td>
-                    <td class="td_left">
-                        <div class="layui-table-cell ">{$v2['remark']}</div>
-                    </td>
-                    <td class="td_left">
-                        <div class="layui-table-cell ">{$v2['sort']}</div>
-                    </td>
-                    <td class="td_center">
-                        <a href="javascript:;" class="editNode layui-btn layui-btn-xs">修改</a>&nbsp;&nbsp;
-                        <a href="javascript:;" data-id="{$v2['id']}" class="delNode layui-btn layui-btn-danger layui-btn-xs">删除</a>
-                    </td>
-                </tr>
-            {/volist}
-        {/volist}
         </tbody>
     </table>
 </form>
