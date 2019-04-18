@@ -4,7 +4,7 @@ $server = new \Swoole_WebSocket_Server("0.0.0.0", 8080);
 $server->on('open', function (\Swoole_WebSocket_Server $server, $request) {
     echo "server: handshake success with fd{$request->fd}\n";
     swoole_timer_tick(3000,function($timer_id){
-    	echo "每隔3秒输出：".$timer_id
+    	echo "每隔3秒输出：".$timer_id;
     });
 });
 
