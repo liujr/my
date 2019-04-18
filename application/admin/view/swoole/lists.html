@@ -55,7 +55,7 @@ socket.send('I am the client and I\'m listening!');
 
 // 监听消息
 socket.onmessage = function(event) {
-console.log('Client received a message',event);
+    document.write(event.data)
 };
 
 // 监听Socket的关闭
