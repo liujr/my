@@ -35,7 +35,7 @@ $http->on('request',function($request,$response){
             }
         }
         ob_start(); //打开缓冲区
-    
+
         // 2. 执行应用
         think\App::run()->send();
 
