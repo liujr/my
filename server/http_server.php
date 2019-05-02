@@ -16,6 +16,26 @@ $http->on('WorkerStart',function(swoole_server $server,$worker_id){
     require __DIR__ . '/../thinkphp/base.php';
 });
 $http->on('request',function($request,$response){
+        //将swoole请求头信息转换为php的请求头
+        if(isset($request->header)){
+            foreach($request->header as $k=>$v){
+                $_SERVER[strtoupper($k)] = $v;
+            }
+        }
+        //将swoole请get信息转换为php的get
+        if(isset($request->get)){
+            foreach($request->get as $k=>$v){
+                $_GET[$k] = $v;
+            }
+        }
+        //将swoole请post信息转换为php的post
+        if(isset($request->post)){
+            foreach($request->post as $k=>$v){
+                $_POST[$k] = $v;
+            }
+        }
+        // 2. 执行应用
+        think/App::run()->send();
 		$response->cookie("singwa","xsssss",time()+1800);
 		$response->end("sss" . json_encode($request->get));
 });
