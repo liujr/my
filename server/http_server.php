@@ -34,10 +34,14 @@ $http->on('request',function($request,$response){
                 $_POST[$k] = $v;
             }
         }
+        ob_start(); //打开缓冲区
+    
         // 2. 执行应用
         think\App::run()->send();
-		$response->cookie("singwa","xsssss",time()+1800);
-		$response->end("sss" . json_encode($request->get));
+
+        $res = ob_get_contents();//获取当前缓冲区内容
+        ob_end_clean();// 清空（擦除）缓冲区并关闭输出缓冲
+		$response->end($res);
 });
 
 $http->start();
