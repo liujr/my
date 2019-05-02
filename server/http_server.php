@@ -35,7 +35,7 @@ $http->on('request',function($request,$response){
             }
         }
         // 2. 执行应用
-        think/App::run()->send();
+        think\App::run()->send();
 		$response->cookie("singwa","xsssss",time()+1800);
 		$response->end("sss" . json_encode($request->get));
 });
