@@ -13,7 +13,7 @@ $http->on('WorkerStart',function(swoole_server $server,$worker_id){
     // 定义应用目录
     define('APP_PATH', __DIR__ . '/../application/');
     // 1. 加载基础文件
-    require __DIR__ . '/thinkphp/base.php';
+    require __DIR__ . '/../thinkphp/base.php';
 });
 $http->on('request',function($request,$response){
 		$response->cookie("singwa","xsssss",time()+1800);
