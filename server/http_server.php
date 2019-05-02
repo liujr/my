@@ -49,7 +49,7 @@ $http->on('request',function($request,$response)use($http){
         ob_end_clean();// 清空（擦除）缓冲区并关闭输出缓冲
 		$response->end($res);
 
-		$http->close();
+    $http->close();
 });
 
 $http->start();
