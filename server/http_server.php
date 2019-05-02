@@ -43,11 +43,11 @@ $http->on('request',function($request,$response) use($http){
         }catch (\Exception $e){
 
         };
-
+        echo "-ation-".request()->action().PHP_EOL;
         $res = ob_get_contents();//获取当前缓冲区内容
         ob_end_clean();// 清空（擦除）缓冲区并关闭输出缓冲
 		$response->end($res);
-        $http::close();
+        //$http->close();
 });
 
 $http->start();
