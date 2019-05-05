@@ -10,44 +10,63 @@ $http->set(
 	]
 );
 $http->on('WorkerStart',function(swoole_server $server,$worker_id){
+    define('IS_CLI',false);
     // 定义应用目录
     define('APP_PATH', __DIR__ . '/../application/');
     // 1. 加载基础文件
     require __DIR__ . '/../thinkphp/base.php';
 });
 $http->on('request',function($request,$response) use($http){
-        //将swoole请求头信息转换为php的请求头
-        if(isset($request->header)){
-            foreach($request->header as $k=>$v){
+       //因为这些全局变量会在进程的内存里面不变，所有每次请求到来先清空值。
+        if($request->server['request_uri'] == '/favicon.ico') {
+            $response->status(404);
+            $response->end();
+            return ;
+        }
+        $_SERVER  =  [];
+        if(isset($request->server)) {
+            foreach($request->server as $k => $v) {
                 $_SERVER[strtoupper($k)] = $v;
             }
         }
-        //将swoole请get信息转换为php的get
+        if(isset($request->header)) {
+            foreach($request->header as $k => $v) {
+                $_SERVER[strtoupper($k)] = $v;
+            }
+        }
 
-        if(isset($request->get)){
-            foreach($request->get as $k=>$v){
+        $_GET = [];
+        if(isset($request->get)) {
+            foreach($request->get as $k => $v) {
                 $_GET[$k] = $v;
             }
         }
-        //将swoole请post信息转换为php的post
-        if(isset($request->post)){
-            foreach($request->post as $k=>$v){
+        $_FILES = [];
+        if(isset($request->files)) {
+            foreach($request->files as $k => $v) {
+                $_FILES[$k] = $v;
+            }
+        }
+        $_POST = [];
+        if(isset($request->post)) {
+            foreach($request->post as $k => $v) {
                 $_POST[$k] = $v;
             }
         }
-        ob_start(); //打开缓冲区
 
-        // 2. 执行应用
-        try{
+        ob_start();
+        try {
+            
+            // 执行应用并响应
             think\App::run()->send();
-        }catch (\Exception $e){
+        }catch (\Exception $e) {
+            // todo
+            echo $e->getMessage();
+        }
 
-        };
-        echo "-ation-".request()->action().PHP_EOL;
-        $res = ob_get_contents();//获取当前缓冲区内容
-        ob_end_clean();// 清空（擦除）缓冲区并关闭输出缓冲
-		$response->end($res);
-        //$http->close();
+        $res = ob_get_contents();
+        ob_end_clean();
+        $response->end($res);
 });
 
 $http->start();
