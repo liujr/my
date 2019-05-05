@@ -409,6 +409,7 @@ class Request
                 // CLI模式下 index.php module/controller/action/params/...
                 $_SERVER['PATH_INFO'] = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
             }
+            echo 1111;
             dump($_SERVER['PATH_INFO']);die;
             // 分析PATHINFO信息
             if (!isset($_SERVER['PATH_INFO'])) {
