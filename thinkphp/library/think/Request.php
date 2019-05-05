@@ -432,6 +432,7 @@ class Request
      */
     public function path()
     {
+        dump($this->path);
         if (is_null($this->path)) {
             $suffix   = Config::get('url_html_suffix');
             $pathinfo = $this->pathinfo();
