@@ -10,7 +10,7 @@ $http->set(
 	]
 );
 $http->on('WorkerStart',function(swoole_server $server,$worker_id){
-    define('IS_CLI',false);
+    
     // 定义应用目录
     define('APP_PATH', __DIR__ . '/../application/');
     // 1. 加载基础文件
