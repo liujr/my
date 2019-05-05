@@ -403,7 +403,7 @@ class Request
         dump($this->pathinfo);
         echo '2222222'.PHP_EOL;
         if (is_null($this->pathinfo)) {
-            
+            echo '232323232';
             dump($_GET[Config::get('var_pathinfo')]);
             echo '333333'.PHP_EOL;
 
