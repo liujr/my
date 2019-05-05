@@ -402,8 +402,8 @@ class Request
     {
         dump($this->pathinfo.PHP_EOL);
         if (is_null($this->pathinfo)) {
-            echo 111.PHP_EOL;
-            dump($_GET[Config::get('var_pathinfo')].PHP_EOL);
+            echo 111;
+            dump($_GET[Config::get('var_pathinfo')]);
             if (isset($_GET[Config::get('var_pathinfo')])) {
                 // 判断URL里面是否有兼容模式参数
                 $_SERVER['PATH_INFO'] = $_GET[Config::get('var_pathinfo')];
@@ -413,7 +413,7 @@ class Request
                 $_SERVER['PATH_INFO'] = isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '';
             }
 
-            dump($_SERVER['PATH_INFO'].PHP_EOL);
+            dump($_SERVER['PATH_INFO']);
             // 分析PATHINFO信息
             if (!isset($_SERVER['PATH_INFO'])) {
                 foreach (Config::get('pathinfo_fetch') as $type) {
